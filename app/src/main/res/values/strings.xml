@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Structured</string>
+    <string name="image_background">imageViewBackground</string>
+    <string name="profilePic">ProfilePic</string>
+    <string name="button1">Button</string>
+    <string name="button2">Button</string>
+    <string name="button3">Button</string>
+    <string name="button4">Button</string>
+    <string name="textView3">TextView</string>
+    <string name="textView4">TextView</string>
+    <string name="profile_button">Profile</string>
+    <string name="button6">Button</string>
+    <string name="button7">Button</string>
+    <string name="button8">Button</string>
+</resources>
