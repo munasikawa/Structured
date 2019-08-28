@@ -7,41 +7,37 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addFriendBtn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:text="Add Friend" />
+        android:text="@string/add_friend"
+        app:layout_constraintEnd_toStartOf="@+id/messageButton"
+        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/careerTxt" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/messageButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
+        android:text="@string/messageBtnTxt"
+        app:layout_constraintEnd_toStartOf="@+id/removeBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2"
-        tools:text="Message" />
+        app:layout_constraintStart_toEndOf="@+id/addFriendBtn"
+        app:layout_constraintTop_toTopOf="@+id/addFriendBtn" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/removeBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button2"
-        tools:text="Remove" />
+        android:text="@string/removeBtn"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+        app:layout_constraintStart_toEndOf="@+id/messageButton"
+        app:layout_constraintTop_toTopOf="@+id/addFriendBtn" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/coverPhoto"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:contentDescription="@string/image_background"
@@ -52,40 +48,119 @@
         app:srcCompat="@drawable/background" />
 
     <ImageView
-        android:id="@+id/imageViewProfilePic"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="115dp"
+        android:id="@+id/profilePhoto"
+        android:layout_width="99dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="92dp"
         android:contentDescription="@string/profilePic"
         android:elevation="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+        app:layout_constraintTop_toTopOf="@+id/coverPhoto"
         app:srcCompat="@drawable/profilepic" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nameTxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:text="@string/userName"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewProfilePic"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:text="Muna Sikawa" />
+        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+        app:layout_constraintStart_toEndOf="@+id/profilePhoto"
+        app:layout_constraintTop_toBottomOf="@+id/coverPhoto" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/careerTxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:text="@string/careerTxt"
+        app:layout_constraintEnd_toEndOf="@+id/nameTxt"
+        app:layout_constraintStart_toEndOf="@+id/profilePhoto"
+        app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/topBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="nameTxt,coverPhoto,profilePhoto,careerTxt"
+        tools:layout_editor_absoluteY="731dp" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/invisibleFloatingBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="floatingActionEmail,floatingActionMessage,floatingActionDownload"
+        tools:visibility="invisible" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="17dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewProfilePic"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:text="Android Developer" />
+        app:srcCompat="@drawable/ic_share_black_24dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintCircle="@+id/shareButton"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_email_black_24dp"
+        tools:layout_editor_absoluteY="557dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintCircle="@+id/shareButton"
+        app:layout_constraintCircleAngle="315"
+        app:layout_constraintCircleRadius="80dp"
+        app:srcCompat="@drawable/ic_message_black_24dp"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="596dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintCircle="@+id/shareButton"
+        app:layout_constraintCircleAngle="270"
+        app:layout_constraintCircleRadius="80dp"
+        app:srcCompat="@drawable/ic_file_download_black_24dp"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="669dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

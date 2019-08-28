@@ -12,4 +12,9 @@
     <string name="button6">Button</string>
     <string name="button7">Button</string>
     <string name="button8">Button</string>
+    <string name="add_friend">Add Friend</string>
+    <string name="messageBtnTxt">Message</string>
+    <string name="removeBtn">Remove</string>
+    <string name="userName">Muna Sikawa</string>
+    <string name="careerTxt">Android Developer</string>
 </resources>
