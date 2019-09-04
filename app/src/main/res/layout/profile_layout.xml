@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_optimizationLevel="standard"
     tools:context=".MainActivity">
 
     <Button
@@ -82,6 +83,27 @@
         app:layout_constraintStart_toEndOf="@+id/profilePhoto"
         app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
 
+    <TextView
+        android:id="@+id/textViewMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is just a Text View to test something."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageButton" />
+
+    <!--    <android.support.v7.widget.Toolbar-->
+
+    <!--        android:id="@+id/my_awesome_toolbar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="@dimen/abc_action_bar_default_height_material"-->
+    <!--        android:background="?attr/colorPrimary"-->
+    <!--        android:minHeight="@dimen/abc_action_bar_default_height_material"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/topBarrier"
         android:layout_width="wrap_content"
@@ -95,6 +117,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="floatingActionEmail,floatingActionMessage,floatingActionDownload"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="invisible" />
 
     <androidx.constraintlayout.widget.Guideline
