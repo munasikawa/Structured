@@ -8,6 +8,17 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/messageButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/messageBtnTxt"
+        app:layout_constraintEnd_toStartOf="@+id/removeBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/addFriendBtn"
+        app:layout_constraintTop_toTopOf="@+id/addFriendBtn" />
+
+    <Button
         android:id="@+id/addFriendBtn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
@@ -18,15 +29,16 @@
         app:layout_constraintStart_toStartOf="@+id/leftGuideline"
         app:layout_constraintTop_toBottomOf="@+id/careerTxt" />
 
-    <Button
-        android:id="@+id/messageButton"
+    <ImageView
+        android:id="@+id/coverPhoto"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/messageBtnTxt"
-        app:layout_constraintEnd_toStartOf="@+id/removeBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/addFriendBtn"
-        app:layout_constraintTop_toTopOf="@+id/addFriendBtn" />
+        android:layout_height="150dp"
+        android:contentDescription="@string/image_background"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/background" />
 
     <Button
         android:id="@+id/removeBtn"
@@ -37,16 +49,12 @@
         app:layout_constraintStart_toEndOf="@+id/messageButton"
         app:layout_constraintTop_toTopOf="@+id/addFriendBtn" />
 
-    <ImageView
-        android:id="@+id/coverPhoto"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:contentDescription="@string/image_background"
-        android:scaleType="centerCrop"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/profilePhoto"
