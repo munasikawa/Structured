@@ -17,4 +17,7 @@
     <string name="removeBtn">Remove</string>
     <string name="userName">Muna Sikawa</string>
     <string name="careerTxt">Android Developer</string>
+    <string name="popupTxt">Show Popup Menu</string>
+    <string name="testTxt">This is just a Text View to test something.</string>
+    <string name="text_value">1</string>
 </resources>

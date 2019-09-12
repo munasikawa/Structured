@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +16,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
+
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
 
     //Create an object of the Action Mode class, will be used to show and hide the action mode contextual menu
@@ -70,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
 
+
+        // Code to show app to use Toolbar instead of Actionbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -87,6 +95,28 @@ public class MainActivity extends AppCompatActivity {
                 }
                 mActionMode = startActionMode(mActionModeCallBack);
                 return true;
+            }
+        });
+
+        // Gets reference to floating action button and text view
+        // Gets current textValue as a string converts it to an integer
+        // calls our function doubleTheValue (From the class MyWorker.java)
+        // Which doubles the value and converts back to a string
+        FloatingActionButton shareBtn = findViewById(R.id.shareButton);
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                TextView textValue = findViewById(R.id.textValue);
+                String stringValue = textValue.getText().toString();
+                int originalValue = Integer.parseInt(stringValue);
+                int newValue = MyWorker.doubleTheValue(originalValue);
+                textValue.setText(Integer.toString(newValue));
+
+
+                Snackbar.make(view, "Changed value " + originalValue + " to " + newValue,
+                        LENGTH_LONG).setAction("Action", null).show();
+
             }
         });
     }
@@ -145,6 +175,30 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onContextItemSelected(item);
+        }
+    }
+
+    public void showPopupMenu(View view) {
+        PopupMenu popup = new PopupMenu(this, view);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.popup_menu);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.popUpItem1:
+                Toast.makeText(this, "Popup Menu 1 Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.popUpItem2:
+                Toast.makeText(this, "Popup Menu  2 Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.popUpItem3:
+                Toast.makeText(this, "Popup Menu  3 Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return false;
         }
     }
 }
